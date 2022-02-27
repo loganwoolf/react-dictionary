@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import './styles.css'
+import Header from './components/header'
 
 export default function App() {
   const [term, setTerm] = useState('')
@@ -30,8 +31,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>World's Fastest React Dictionary</h1>
-      <h2>Definitions before you can even think!</h2>
+      <Header />
       <input
         placeholder="Get a definition"
         value={term}
