@@ -4,6 +4,7 @@ import axios from 'axios'
 import './styles.css'
 import Header from './components/header'
 import Form from './components/form'
+import Output from './components/output'
 
 export default function App() {
   const [term, setTerm] = useState('')
@@ -34,22 +35,7 @@ export default function App() {
     <div className="App">
       <Header />
       <Form term={term} setTerm={setTerm} setDefinition={setDefinition} />
-
-      {error && <h3>Word not found</h3>}
-      {term && definition && (
-        <>
-          <h3>
-            {definition.word}: <span>{definition.phonetic}</span>{' '}
-          </h3>
-          <p>
-            {definition.meanings[0].partOfSpeech}:{' '}
-            {definition.meanings[0].definitions[0].definition}
-          </p>
-          <footer>
-            Coded by <a href="http://github.com/loganwoolf">Logan Woolf</a>
-          </footer>
-        </>
-      )}
+      <Output error={error} term={term} definition={definition} />
     </div>
   )
 }
