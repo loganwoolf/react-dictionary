@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import './styles.css'
 import Header from './components/header'
+import Form from './components/form'
 
 export default function App() {
   const [term, setTerm] = useState('')
@@ -32,19 +33,7 @@ export default function App() {
   return (
     <div className="App">
       <Header />
-      <input
-        placeholder="Get a definition"
-        value={term}
-        onChange={(e) => setTerm(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          setTerm('')
-          setDefinition('')
-        }}
-      >
-        Clear
-      </button>
+      <Form term={term} setTerm={setTerm} setDefinition={setDefinition} />
 
       {error && <h3>Word not found</h3>}
       {term && definition && (
