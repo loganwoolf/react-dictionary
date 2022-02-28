@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import request from './helpers/request'
 
 import './styles.css'
 import Header from './components/header'
@@ -11,25 +11,7 @@ export default function App() {
   const [definition, setDefinition] = useState(null)
   const [error, setError] = useState(null)
 
-  function request() {
-    if (!term) {
-      return
-    }
-    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${term}`
-    axios
-      .get(url)
-      .then((res) => {
-        console.log(res.data[0])
-        setDefinition(res.data[0])
-        setError(null)
-      })
-      .catch((err) => {
-        console.log('api error')
-        setDefinition(null)
-        setError(err.message)
-      })
-  }
-  useEffect(request, [term])
+  useEffect(() => request(setDefinition, setError, term), [term])
 
   return (
     <div className="App">
