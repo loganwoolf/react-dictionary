@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -7,8 +11,10 @@
   padding: 1rem;
   font-family: monospace;
   text-align: center;
-  width: 375px;
-  margin: 2rem auto 0;
+  width: calc(100vw - 2rem - 4rem);
+  min-width: calc(320px - 2rem - 4rem);
+  max-width: 35rem;
+  margin: 2rem auto;
 }
 
 h1 {
@@ -30,7 +36,7 @@ input {
 input {
   padding: 0.5rem;
   font-size: 1.5em;
-  width: calc(375px - 1rem);
+  width: calc(100% - 1rem);
 }
 button {
   background: unset;
@@ -66,4 +72,20 @@ a {
 
 a:hover {
   transform: rotate(-8deg) scale(1.08);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  width: 100%;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: unset;
 }
