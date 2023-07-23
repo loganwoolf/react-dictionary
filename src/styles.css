@@ -7,7 +7,7 @@
   padding: 1rem;
   font-family: monospace;
   text-align: center;
-  width: 375px;
+  max-width: 375px;
   margin: 2rem auto 0;
 }
 
@@ -30,7 +30,7 @@ input {
 input {
   padding: 0.5rem;
   font-size: 1.5em;
-  width: calc(375px - 1rem);
+  width: calc(100% - 1rem);
 }
 button {
   background: unset;
