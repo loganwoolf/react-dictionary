@@ -39,10 +39,15 @@ button {
 }
 
 .App,
-input:hover,
 input:focus,
-button:hover {
+button:hover,
+button:focus {
   box-shadow: 5px 5px 0 black;
+}
+
+button:active {
+  box-shadow: unset;
+  transform: translate(5px, 5px);
 }
 
 h3 {
