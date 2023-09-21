@@ -9,7 +9,7 @@ export default function Form(props) {
   useEffect(() => focusInput(), [])
 
   return (
-    <>
+    <form className="form flex-column" onSubmit={(e) => e.preventDefault()}>
       <input
         ref={inputElement}
         placeholder="Get a definition"
@@ -27,6 +27,6 @@ export default function Form(props) {
       >
         Clear
       </button>
-    </>
+    </form>
   )
 }
