@@ -1,11 +1,12 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function Form(props) {
   const { term, setTerm, setDefinition } = props
 
   const inputElement = useRef()
-
   const focusInput = () => inputElement.current.focus()
+
+  useEffect(() => focusInput(), [])
 
   return (
     <>
