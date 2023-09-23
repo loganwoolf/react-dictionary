@@ -1,8 +1,8 @@
 export default function Header(props) {
   return (
-    <header>
+    <header className="header flex-column">
       <h1>World's Fastest React Dictionary</h1>
-      <h2>Definitions before you can even think!</h2>
+      <p className="sub-header">Definitions before you can even think!</p>
     </header>
   )
 }

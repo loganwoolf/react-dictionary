@@ -14,7 +14,7 @@ export default function App() {
   useEffect(() => request(setDefinition, setError, term), [term])
 
   return (
-    <div className="App">
+    <div className="App flex-column">
       <Header />
       <Form term={term} setTerm={setTerm} setDefinition={setDefinition} />
       <Output error={error} term={term} definition={definition} />
