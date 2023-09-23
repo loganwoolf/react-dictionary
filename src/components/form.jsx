@@ -13,6 +13,7 @@ export default function Form(props) {
       <input
         ref={inputElement}
         placeholder="Get a definition"
+        autocomplete="off"
         name="define"
         value={term}
         onChange={(e) => setTerm(e.target.value)}
