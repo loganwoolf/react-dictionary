@@ -1,7 +1,7 @@
-import Footer from './footer'
+import Footer from './footer';
 
 export default function Output(props) {
-  const { error, term, definition } = props
+  const { error, term, definition } = props;
 
   return (
     <>
@@ -13,10 +13,16 @@ export default function Output(props) {
               <dt>
                 {definition.word}: <span>{definition.phonetic}</span>{' '}
               </dt>
-              <dd>
-                {definition.meanings[0].partOfSpeech}:{' '}
-                {definition.meanings[0].definitions[0].definition}
-              </dd>
+              {definition.meanings.map(({ partOfSpeech, definitions }) => (
+                <dd>
+                  {partOfSpeech}:
+                  <ol>
+                    {definitions.map(({ definition }) => (
+                      <li>{definition}</li>
+                    ))}
+                  </ol>
+                </dd>
+              ))}
             </dl>
           </main>
 
@@ -24,5 +30,5 @@ export default function Output(props) {
         </>
       )}
     </>
-  )
+  );
 }
