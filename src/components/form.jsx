@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function Form(props) {
-  const { term, setTerm, setDefinition } = props
-
+export default function Form({ term, setTerm, setDefinition }) {
   const inputElement = useRef()
   const focusInput = () => inputElement.current.focus()
 

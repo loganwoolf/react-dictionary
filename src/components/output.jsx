@@ -1,8 +1,4 @@
-import Footer from './footer';
-
-export default function Output(props) {
-  const { error, term, definition } = props;
-
+export default function Output({ error, term, definition }) {
   return (
     <>
       {error && <p className="not-found">Word not found</p>}
@@ -14,19 +10,17 @@ export default function Output(props) {
                 {definition.word}: <span>{definition.phonetic}</span>{' '}
               </dt>
               {definition.meanings.map(({ partOfSpeech, definitions }) => (
-                <dd>
+                <dd key={partOfSpeech}>
                   {partOfSpeech}:
                   <ol>
                     {definitions.map(({ definition }) => (
-                      <li>{definition}</li>
+                      <li key={definition}>{definition}</li>
                     ))}
                   </ol>
                 </dd>
               ))}
             </dl>
           </main>
-
-          <Footer />
         </>
       )}
     </>

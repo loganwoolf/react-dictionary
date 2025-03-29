@@ -1,7 +1,7 @@
-export default function Footer(props) {
+export default function Footer() {
   return (
     <footer className="footer">
-      Coded by <a href="http://github.com/loganwoolf">Logan Woolf</a>
+      <p>Coded by <a href="http://github.com/loganwoolf">Logan Woolf</a></p>
     </footer>
   )
 }
