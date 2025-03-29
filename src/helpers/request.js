@@ -1,20 +1,15 @@
-import axios from 'axios'
+export default async function request(setDefinition, setError, term) {
+  if (!term) return;
 
-export default function request(setDefinition, setError, term) {
-  if (!term) {
-    return
+  try {
+    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`);
+    const json = await res.json();
+    console.log({ json });
+
+    setDefinition(json[0]);
+    setError(null);
+  } catch (err) {
+    setDefinition(null);
+    setError(err.message);
   }
-  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${term}`
-  axios
-    .get(url)
-    .then((res) => {
-      console.log(res.data[0])
-      setDefinition(res.data[0])
-      setError(null)
-    })
-    .catch((err) => {
-      console.log('api error')
-      setDefinition(null)
-      setError(err.message)
-    })
 }
