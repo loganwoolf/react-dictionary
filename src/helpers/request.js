@@ -1,14 +1,16 @@
 export default async function request(setDefinition, setError, term) {
-  if (!term) return;
+	if (!term) return;
 
-  try {
-    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`);
-    const json = await res.json();
+	try {
+		const res = await fetch(
+			`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`,
+		);
+		const json = await res.json();
 
-    setDefinition(json[0]);
-    setError(null);
-  } catch (err) {
-    setDefinition(null);
-    setError(err.message);
-  }
+		setDefinition(json[0]);
+		setError(null);
+	} catch (err) {
+		setDefinition(null);
+		setError(err.message);
+	}
 }
