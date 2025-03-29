@@ -4,7 +4,6 @@ export default async function request(setDefinition, setError, term) {
   try {
     const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`);
     const json = await res.json();
-    console.log({ json });
 
     setDefinition(json[0]);
     setError(null);

@@ -1,5 +1,6 @@
 import { render } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+import Footer from './components/footer';
 import Form from './components/form';
 import Header from './components/header';
 import Output from './components/output';
@@ -12,10 +13,7 @@ export function App() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    async function fetchData() {
-      await request(setDefinition, setError, term);
-    }
-    fetchData();
+    request(setDefinition, setError, term);
   }, [term])
 
   return (
@@ -23,6 +21,7 @@ export function App() {
 	  <Header />
 	  <Form term={term} setTerm={setTerm} setDefinition={setDefinition} />
 	  <Output error={error} term={term} definition={definition} />
+    {term && definition && <Footer />}
 	</div>
   )
 }
