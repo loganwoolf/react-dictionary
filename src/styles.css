@@ -83,6 +83,10 @@ dd {
 	width: 100%;
 }
 
+footer p {
+	margin: 0;
+}
+
 footer a {
 	display: inline-block;
 	color: black;
