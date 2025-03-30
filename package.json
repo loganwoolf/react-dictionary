@@ -5,7 +5,7 @@
 		"dev": "bun --bun vite",
 		"build": "bun --bun vite build",
 		"preview": "bun --bun vite preview",
-		"fix": "biome check --write ./"
+		"fix": "biome check --write"
 	},
 	"dependencies": {
 		"preact": "^10.25.3"
