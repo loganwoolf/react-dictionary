@@ -1,8 +1,7 @@
-export default function Output({ error, term, definition }) {
+export default function Output({ term, definition }) {
 	return (
 		<>
-			{error && <p className="not-found">Word not found</p>}
-			{term && definition && (
+			{definition ? (
 				<main className="main">
 					<dl className="flex-column">
 						<dt>
@@ -20,6 +19,8 @@ export default function Output({ error, term, definition }) {
 						))}
 					</dl>
 				</main>
+			) : (
+				<p className="not-found">Word "{term}" not found</p>
 			)}
 		</>
 	);
