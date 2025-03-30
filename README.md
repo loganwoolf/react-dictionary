@@ -6,8 +6,8 @@ https://lw-dictionary.netlify.app/
 
 ## Getting Started
 
+### Scripts
 - `bun dev` - Starts a dev server at http://localhost:5173/
-
-- `bun build` - Builds for production, emitting to `dist/`
-
+- `bun run build` - Builds for production, emitting to `dist/`
 - `bun preview` - Starts a server at http://localhost:4173/ to test production build locally
+- `bun fix` - Run Biome on full project

@@ -2,21 +2,18 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "bunx --bun vite",
-		"build": "vite build",
-		"preview": "vite preview"
+		"dev": "bun --bun vite",
+		"build": "bun --bun vite build",
+		"preview": "bun --bun vite preview",
+		"fix": "biome check --write"
 	},
 	"dependencies": {
 		"preact": "^10.25.3"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
 		"@preact/preset-vite": "^2.9.3",
-		"eslint": "^8.57.1",
-		"eslint-config-preact": "^1.5.0",
 		"typescript": "^5.8.2",
 		"vite": "^6.0.4"
-	},
-	"eslintConfig": {
-		"extends": "preact"
 	}
 }
