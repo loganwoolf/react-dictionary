@@ -14,7 +14,6 @@ html {
 	margin: var(--block-spacing) auto;
 	max-height: calc(100dvh - var(--block-spacing) * 2);
 	max-width: 420px;
-	min-height: 500px;
 	padding: 1rem;
 	text-align: center;
 }
@@ -90,11 +89,13 @@ dl {
 	flex: 0 1 auto;
 	font-size: 1.25em;
 	margin: 0;
+	min-height: 10rem;
 	overflow: auto;
 	padding: 1.5rem 1rem;
 	scrollbar-gutter: stable both-edges;
 	scrollbar-width: thin;
 	text-align: left;
+	width: 100%;
 }
 
 dd {
