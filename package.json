@@ -2,10 +2,10 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "bun --bun vite",
-		"build": "bun --bun vite build",
-		"preview": "bun --bun vite preview",
-		"fix": "biome check --write"
+		"dev": "bunx --bun vite",
+		"build": "bunx --bun vite build",
+		"preview": "bunx --bun vite preview",
+		"fix": "biome check --write ."
 	},
 	"dependencies": {
 		"preact": "^10.25.3"
