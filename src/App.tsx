@@ -1,14 +1,17 @@
 import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
+
+import "./styles.css";
+
 import Footer from "./components/footer";
 import Form from "./components/form";
 import Header from "./components/header";
 import Output from "./components/output";
 import request, { type Definition } from "./helpers/request";
-import "./styles.css";
+import { useSearchTerm } from "./hooks";
 
 export function App() {
-	const [term, setTerm] = useState<string>("");
+	const [term, setTerm] = useSearchTerm();
 	const [definition, setDefinition] = useState<Definition | null>(null);
 
 	useEffect(() => {
