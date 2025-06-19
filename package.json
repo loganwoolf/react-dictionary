@@ -5,7 +5,8 @@
 		"dev": "bunx --bun vite",
 		"build": "bunx --bun vite build",
 		"preview": "bunx --bun vite preview",
-		"fix": "biome check --write ."
+		"fix": "biome check --write .",
+		"watch": "tsc --noEmit --incremental --pretty --watch"
 	},
 	"dependencies": {
 		"preact": "^10.25.3"
