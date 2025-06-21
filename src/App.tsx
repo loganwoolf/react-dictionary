@@ -32,6 +32,7 @@ export function App() {
 		if (!(event.target instanceof HTMLInputElement)) return;
 
 		setTerm(event.target.value);
+		if (!event.target.value) handleClear();
 	}
 
 	function handleClear() {
