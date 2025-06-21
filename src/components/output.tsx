@@ -1,4 +1,14 @@
-export default function Output({ term, definition }) {
+import type { Definition } from "../helpers/request";
+
+interface OutputProps {
+	definition: Definition | null;
+	isPending: boolean;
+	term: string;
+}
+
+export default function Output({ isPending, term, definition }: OutputProps) {
+	if (!term) return null;
+
 	return (
 		<>
 			{definition ? (
@@ -7,8 +17,9 @@ export default function Output({ term, definition }) {
 						<dt>
 							{definition.word}: <span>{definition.phonetic}</span>{" "}
 						</dt>
-						{definition.meanings.map(({ partOfSpeech, definitions }) => (
-							<dd key={partOfSpeech}>
+						{definition.meanings.map(({ partOfSpeech, definitions }, index) => (
+							// biome-ignore lint/suspicious/noArrayIndexKey: definitions can't change
+							<dd key={index}>
 								{partOfSpeech}:
 								<ol>
 									{definitions.map(({ definition }) => (
@@ -20,7 +31,7 @@ export default function Output({ term, definition }) {
 					</dl>
 				</main>
 			) : (
-				<p className="not-found">Word "{term}" not found</p>
+				!isPending && <p className="not-found">Word "{term}" not found</p>
 			)}
 		</>
 	);

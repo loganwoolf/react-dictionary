@@ -29,13 +29,24 @@ export function App() {
 	}, [term, startTransition]);
 
 	function handleInput(event: InputEvent) {
+		if (!(event.target instanceof HTMLInputElement)) return;
+
+		setTerm(event.target.value);
+	}
+
+	function handleClear() {
+		setTerm("");
+		setDefinition(null);
+	}
 
 	return (
 		<div className="App flex-column">
 			<Header />
-			<Form term={term} setTerm={setTerm} setDefinition={setDefinition} />
-			{term && <Output term={term} definition={definition} />}
-			{term && definition && <Footer />}
+
+			<Form term={term} onInput={handleInput} onClick={handleClear} />
+			<Output definition={definition} isPending={isPending} term={term} />
+
+			{definition && <Footer />}
 		</div>
 	);
 }
