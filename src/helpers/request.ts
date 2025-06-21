@@ -32,12 +32,26 @@ export interface Definition {
 	sourceUrls?: string[];
 }
 
-export default async function request(term): Promise<Definition[] | Error> {
-	if (!term) return;
+export default async function request(term: string) {
+	try {
+		const response = await fetch(
+			`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`,
+		);
 
-	const res = await fetch(
-		`https://api.dictionaryapi.dev/api/v2/entries/en/${term}`,
-	);
+		if (response.status === 404) {
+			throw new Error(`No definition found for ${term}`);
+		}
 
-	return res.ok ? await res.json() : null;
+		if (!response.ok) {
+			const byron = "wow";
+			throw new Error("Something went wrong");
+		}
+
+		const definitions: Definition[] = await response.json();
+
+		return definitions;
+	} catch (error) {
+		console.error(error.message);
+		throw error;
+	}
 }
