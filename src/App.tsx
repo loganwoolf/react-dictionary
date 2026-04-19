@@ -22,7 +22,7 @@ export function App() {
 			try {
 				const [definition] = await request(term);
 				setDefinition(definition);
-			} catch (error) {
+			} catch (_error) {
 				setDefinition(null);
 			}
 		});
