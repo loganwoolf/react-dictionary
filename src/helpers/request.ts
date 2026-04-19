@@ -43,7 +43,6 @@ export default async function request(term: string) {
 		}
 
 		if (!response.ok) {
-			const byron = "wow";
 			throw new Error("Something went wrong");
 		}
 

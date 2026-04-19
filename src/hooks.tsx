@@ -1,10 +1,4 @@
-import {
-	type Dispatch,
-	type StateUpdater,
-	useCallback,
-	useEffect,
-	useState,
-} from "preact/hooks";
+import { useCallback, useEffect, useState } from "preact/hooks";
 
 export function useSearchTerm(initialValue = "") {
 	const KEY = "q" as const;
@@ -26,7 +20,7 @@ export function useSearchTerm(initialValue = "") {
 export function useTransition() {
 	const [isPending, setIsPending] = useState(false);
 
-	const startTransition = useCallback(async (callback) => {
+	const startTransition = useCallback(async (callback: () => Promise<void>) => {
 		setIsPending(true);
 		try {
 			await callback();
