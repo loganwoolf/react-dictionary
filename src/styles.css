@@ -4,13 +4,23 @@ html {
 	scrollbar-gutter: stable both-edges;
 }
 
+:root {
+	--border-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--border-color: white;
+	}
+}
+
 * {
 	box-sizing: border-box;
 }
 
 .App {
 	--block-spacing: 2rem;
-	border: 2px solid black;
+	border: 2px solid var(--border-color);
 	margin: var(--block-spacing) auto;
 	max-height: calc(100dvh - var(--block-spacing) * 2);
 	max-width: 420px;
@@ -31,7 +41,7 @@ html {
 
 header {
 	h1 {
-		border-bottom: 2px solid black;
+		border-bottom: 2px solid var(--border-color);
 		padding-bottom: 1rem;
 	}
 
@@ -49,7 +59,7 @@ header {
 button,
 input {
 	border-radius: 0;
-	border: 2px solid black;
+	border: 2px solid var(--border-color);
 	font-family: monospace;
 	outline: unset;
 	text-align: center;
@@ -72,7 +82,7 @@ button {
 input:focus,
 button:hover,
 button:focus {
-	box-shadow: 5px 5px 0 black;
+	box-shadow: 5px 5px 0 var(--border-color);
 }
 
 button:active {
@@ -85,7 +95,7 @@ main {
 }
 
 dl {
-	border: 2px solid black;
+	border: 2px solid var(--border-color);
 	flex: 0 1 auto;
 	font-size: 1.25em;
 	margin: 0;
@@ -109,7 +119,7 @@ footer {
 	}
 
 	a {
-		color: black;
+		color: inherit;
 		display: inline-block;
 		transition: all 180ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
